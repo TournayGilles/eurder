@@ -8,14 +8,13 @@ import com.switchfully.eurder.domain.user.ressources.Name;
 import com.switchfully.eurder.internals.exceptions.NoCustomerWithProvidedIdException;
 import com.switchfully.eurder.internals.exceptions.NoRightException;
 import com.switchfully.eurder.service.User.UserService;
-import com.switchfully.eurder.service.dto.CreateCustomerDto;
-import com.switchfully.eurder.service.dto.CustomerDto;
+import com.switchfully.eurder.service.User.dto.CreateCustomerDto;
+import com.switchfully.eurder.service.User.dto.CustomerDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.List;
 import java.util.UUID;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)

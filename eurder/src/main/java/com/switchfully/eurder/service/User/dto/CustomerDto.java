@@ -1,4 +1,4 @@
-package com.switchfully.eurder.service.dto;
+package com.switchfully.eurder.service.User.dto;
 
 import java.util.UUID;
 

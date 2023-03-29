@@ -2,8 +2,8 @@ package com.switchfully.eurder.service.User;
 
 import com.switchfully.eurder.domain.user.UserRepository;
 import com.switchfully.eurder.domain.user.ressources.Customer;
-import com.switchfully.eurder.service.dto.CreateCustomerDto;
-import com.switchfully.eurder.service.dto.CustomerDto;
+import com.switchfully.eurder.service.User.dto.CreateCustomerDto;
+import com.switchfully.eurder.service.User.dto.CustomerDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

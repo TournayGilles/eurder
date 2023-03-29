@@ -5,6 +5,10 @@ import com.switchfully.eurder.domain.user.ressources.Customer;
 import com.switchfully.eurder.domain.user.ressources.User;
 import com.switchfully.eurder.internals.exceptions.NoCustomerWithProvidedIdException;
 import com.switchfully.eurder.internals.exceptions.NoRightException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.logging.java.JavaLoggingSystem;
+import org.springframework.boot.logging.log4j2.Log4J2LoggingSystem;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,9 +21,11 @@ public class UserRepository {
     private final Map<UUID, User> userByUUIDRepository;
 
     public UserRepository() {
+        Logger logger = LoggerFactory.getLogger(UserRepository.class);
         userByUUIDRepository = new ConcurrentHashMap<>();
         Admin admin = new Admin("admin@admin.com");
         userByUUIDRepository.put(admin.getUserId(),admin);
+        logger.info("Admin id: " + admin.getUserId().toString());
     }
     public User save(Customer customer){
         userByUUIDRepository.put(customer.getUserId(),customer);
