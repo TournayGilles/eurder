@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean install -DskipTests'
+               cd ./eurder && sh 'mvn clean install -DskipTests'
             }
         }
         stage('Test-Stage') {
