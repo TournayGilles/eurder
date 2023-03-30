@@ -7,7 +7,6 @@ import com.switchfully.eurder.domain.user.UserRepository;
 import com.switchfully.eurder.service.item.dto.CreateItemDto;
 import com.switchfully.eurder.service.item.dto.ItemDto;
 import com.switchfully.eurder.service.item.dto.UpdateItemDto;
-import com.switchfully.eurder.service.order.dto.ShippingItemPurchaseDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

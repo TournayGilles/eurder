@@ -2,6 +2,7 @@ package com.switchfully.eurder.domain;
 
 import com.switchfully.eurder.domain.user.*;
 import com.switchfully.eurder.domain.user.ressources.*;
+import com.switchfully.eurder.internals.exceptions.MissingFieldException;
 import com.switchfully.eurder.internals.exceptions.NoCustomerWithProvidedIdException;
 import com.switchfully.eurder.internals.exceptions.NoRightException;
 import org.junit.jupiter.api.Assertions;
@@ -71,5 +72,9 @@ public class UserRepositoryTest {
     void verifyAdmin_WhenGivenAdminId_DoesNotThrowException(){
         User user = userRepository.getUserByUUIDRepository().values().stream().findFirst().get();
         Assertions.assertDoesNotThrow(() -> userRepository.verifyAdmin(user.getUserId()));
+    }
+    @Test
+    void CustomerConstructorThrowsExceptionWhenInvalidField(){
+        Assertions.assertThrows(MissingFieldException.class, ()-> new Customer("aa@aa.com", null, null, "+478963214"));
     }
 }

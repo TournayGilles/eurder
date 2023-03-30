@@ -29,4 +29,8 @@ public class ItemServiceTest {
     void SaveItem_IfAdminAndValidObject_DoesNotThrowException(){
         Assertions.assertDoesNotThrow(() -> itemService.addItem(adminId, new CreateItemDto("a", "b", new Price(17.0,"euro"),4)));
     }
+    @Test
+    void getItemByUrgency_ThrowsExceptionWhenNotAdmin(){
+        Assertions.assertThrows(NoRightException.class,()-> itemService.getItemsByUrgency(UUID.randomUUID().toString()));
+    }
 }

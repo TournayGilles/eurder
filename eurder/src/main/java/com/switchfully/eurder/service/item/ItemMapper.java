@@ -17,6 +17,6 @@ public class ItemMapper {
         return new ItemDto(item.getItemId(), item.getItemName(), item.getItemDescription(), item.getPrice(), item.getStock());
     }
     public List<ItemDto> toItemDtoList(List<Item> items){
-        return items.stream().map(item -> toItemDto(item)).toList();
+        return items.stream().map(this::toItemDto).toList();
     }
 }
