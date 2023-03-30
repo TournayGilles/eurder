@@ -1,5 +1,7 @@
 package com.switchfully.eurder.domain.item.ressources;
 
+import com.switchfully.eurder.service.item.dto.UpdateItemDto;
+
 import java.util.UUID;
 
 public class Item {
@@ -8,6 +10,7 @@ public class Item {
     private String itemDescription;
     private Price price;
     private int stock;
+    private StockUrgency urgency;
 
     public Item(String itemName, String itemDescription, Price price, int stock) {
         itemId = UUID.randomUUID();
@@ -15,6 +18,7 @@ public class Item {
         this.itemDescription = itemDescription;
         this.price = price;
         this.stock = stock;
+        urgency = StockUrgency.setStockUrgency(stock);
     }
     public Item(Item item){
         itemId = item.getItemId();
@@ -44,7 +48,19 @@ public class Item {
         return stock;
     }
 
+    public StockUrgency getUrgency() {
+        return urgency;
+    }
+    public void updateItem(UpdateItemDto dto){
+        itemName = dto.itemName;
+        itemDescription = dto.itemDescription;
+        price = dto.price;
+        stock = dto.stock;
+        urgency = StockUrgency.setStockUrgency(stock);
+    }
+
     public void updateStock(int amount) {
         stock += amount;
+        urgency = StockUrgency.setStockUrgency(stock);
     }
 }
