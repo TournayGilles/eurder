@@ -2,8 +2,11 @@ package com.switchfully.eurder.api;
 
 import com.switchfully.eurder.service.order.OrderService;
 import com.switchfully.eurder.service.order.dto.OrderDto;
+import com.switchfully.eurder.service.order.dto.OrderReportDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/order")
@@ -22,7 +25,17 @@ public class OrderController {
     }
     @PatchMapping(path = "/checkout", produces = "application/json")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public OrderDto checkout(@RequestHeader String userId){
+    public String checkout(@RequestHeader String userId){
         return orderService.checkout(userId);
+    }
+    @PostMapping(path = "/reorder/{orderId}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public String orderBasedOnOldOrder(@RequestHeader String userId, @PathVariable String orderId){
+        return orderService.orderBasedOnOldOrder(userId, orderId);
+    }
+    @GetMapping(produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    public OrderReportDto getOrdersForCustomer(@RequestHeader String userId){
+        return orderService.getOrdersForCustomer(userId);
     }
 }

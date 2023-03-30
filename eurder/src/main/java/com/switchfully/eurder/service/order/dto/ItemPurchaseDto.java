@@ -1,19 +1,14 @@
 package com.switchfully.eurder.service.order.dto;
-import com.switchfully.eurder.service.item.dto.ItemDto;
-
-import java.time.LocalDate;
 
 public class ItemPurchaseDto {
 
-    public final OrderItemDto item;
+    public final String itemName;
     public final int amount;
-    public final LocalDate shippingDate;
     public final String purchasePrice;
 
-    public ItemPurchaseDto(OrderItemDto item, int amount, LocalDate shippingDate, String purchasePrice) {
-        this.item = item;
+    public ItemPurchaseDto(String itemName ,int amount, String purchasePrice) {
+        this.itemName = itemName;
         this.amount = amount;
-        this.shippingDate = shippingDate;
         this.purchasePrice = purchasePrice;
     }
 }
