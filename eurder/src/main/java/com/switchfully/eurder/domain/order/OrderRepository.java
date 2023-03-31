@@ -1,6 +1,5 @@
 package com.switchfully.eurder.domain.order;
 
-import com.switchfully.eurder.domain.order.ressources.ItemPurchase;
 import com.switchfully.eurder.domain.order.ressources.Order;
 import com.switchfully.eurder.internals.exceptions.NoSuchOrderException;
 import org.springframework.stereotype.Repository;

@@ -7,18 +7,15 @@ import com.switchfully.eurder.domain.order.ressources.ItemPurchase;
 import com.switchfully.eurder.domain.order.ressources.Order;
 import com.switchfully.eurder.domain.user.UserRepository;
 import com.switchfully.eurder.domain.user.ressources.Customer;
-import com.switchfully.eurder.domain.user.ressources.User;
 import com.switchfully.eurder.internals.exceptions.NoRightException;
 import com.switchfully.eurder.internals.exceptions.NoSuchOrderException;
 import com.switchfully.eurder.internals.exceptions.OrderStillOpenException;
 import com.switchfully.eurder.service.item.ItemMapper;
-import com.switchfully.eurder.service.order.dto.OrderDto;
 import com.switchfully.eurder.service.order.dto.OrderReportDto;
 import com.switchfully.eurder.service.order.dto.ShippingItemPurchaseDto;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;

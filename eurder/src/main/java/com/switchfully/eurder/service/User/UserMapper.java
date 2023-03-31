@@ -15,6 +15,6 @@ public class UserMapper {
         return new Customer(createCustomerDto.email,createCustomerDto.address,new Name(createCustomerDto.firstName, createCustomerDto.lastName), createCustomerDto.phoneNumber);
     }
     public List<CustomerDto> toCustomerDtoList(List<Customer> customerList){
-        return customerList.stream().map(customer -> toCustomerDto(customer)).toList();
+        return customerList.stream().map(this::toCustomerDto).toList();
     }
 }

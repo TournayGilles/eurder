@@ -7,8 +7,6 @@ import com.switchfully.eurder.internals.exceptions.NoCustomerWithProvidedIdExcep
 import com.switchfully.eurder.internals.exceptions.NoRightException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.logging.java.JavaLoggingSystem;
-import org.springframework.boot.logging.log4j2.Log4J2LoggingSystem;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -45,7 +43,7 @@ public class UserRepository {
     }
     public void verifyAdmin(UUID userId){
         User user = userByUUIDRepository.get(userId);
-        if (user == null || !(user instanceof Admin)){
+        if (!(user instanceof Admin)){
             throw new NoRightException("No Right to request for id: " + userId.toString());
         }
     }

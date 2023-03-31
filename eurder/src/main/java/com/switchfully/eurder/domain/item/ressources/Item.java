@@ -26,6 +26,7 @@ public class Item {
         itemDescription= item.getItemDescription();
         price = item.getPrice();
         stock = item.getStock();
+        urgency = StockUrgency.setStockUrgency(stock);
     }
 
     public UUID getItemId() {

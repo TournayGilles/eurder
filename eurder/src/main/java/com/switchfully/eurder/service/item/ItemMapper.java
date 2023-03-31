@@ -4,7 +4,6 @@ import com.switchfully.eurder.domain.item.ressources.Item;
 import com.switchfully.eurder.service.item.dto.CreateItemDto;
 import com.switchfully.eurder.service.item.dto.ItemDto;
 
-import java.util.Comparator;
 import java.util.List;
 
 public class ItemMapper {

@@ -26,7 +26,7 @@ public class Order {
     }
 
     public Price getTotalPrice() {
-        return purchaseList.stream().map(purchase -> purchase.getPurchasePrice()).reduce(Price::addPrices).orElse(new Price(0.0,"Euro"));
+        return purchaseList.stream().map(ItemPurchase::getPurchasePrice).reduce(Price::addPrices).orElse(new Price(0.0,"Euro"));
     }
 
     public List<ItemPurchase> getPurchaseList() {

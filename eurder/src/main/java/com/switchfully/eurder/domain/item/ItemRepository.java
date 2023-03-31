@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 
 @Repository
 public class ItemRepository {
@@ -32,8 +31,7 @@ public class ItemRepository {
         return item;
     }
     public List<Item> getItemsSortedByUrgency(){
-        List<Item> itemList = itemByUUIDRepository.values().stream().sorted(Comparator.comparing(Item::getUrgency)).toList();
-        return itemList;
+        return itemByUUIDRepository.values().stream().sorted(Comparator.comparing(Item::getUrgency)).toList();
     }
     public List<Item> getItemsForSpecificUrgency(StockUrgency urgency){
         return itemByUUIDRepository.values().stream().filter(item -> item.getUrgency() == urgency).toList();

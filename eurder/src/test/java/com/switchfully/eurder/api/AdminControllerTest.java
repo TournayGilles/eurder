@@ -10,16 +10,10 @@ import com.switchfully.eurder.domain.user.UserRepository;
 import com.switchfully.eurder.domain.user.ressources.Address;
 import com.switchfully.eurder.domain.user.ressources.Customer;
 import com.switchfully.eurder.domain.user.ressources.Name;
-import com.switchfully.eurder.service.User.UserMapper;
-import com.switchfully.eurder.service.User.UserService;
-import com.switchfully.eurder.service.User.dto.CreateCustomerDto;
 import com.switchfully.eurder.service.User.dto.CustomerDto;
-import com.switchfully.eurder.service.item.ItemMapper;
 import com.switchfully.eurder.service.item.dto.CreateItemDto;
 import com.switchfully.eurder.service.item.dto.ItemDto;
 import com.switchfully.eurder.service.item.dto.UpdateItemDto;
-import com.switchfully.eurder.service.order.OrderMapper;
-import com.switchfully.eurder.service.order.OrderService;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.http.Header;
@@ -32,7 +26,6 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.annotation.DirtiesContext;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -47,10 +40,6 @@ public class AdminControllerTest {
     OrderRepository orderRepository;
     @Autowired
     ItemRepository itemRepository;
-
-    UserMapper userMapper = new UserMapper();
-    OrderMapper orderMapper = new OrderMapper();
-    ItemMapper itemMapper = new ItemMapper();
     String adminId;
     Header header;
     @BeforeEach
