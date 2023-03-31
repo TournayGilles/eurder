@@ -11,11 +11,13 @@ public class ShippingItemPurchaseDto {
     public final ItemDto itemdto;
     public final Name customerName;
     public final Address address;
+    public final  int amount;
 
-    public ShippingItemPurchaseDto(UUID orderId, ItemDto itemdto, Name customerName, Address address) {
+    public ShippingItemPurchaseDto(UUID orderId, ItemDto itemdto, Name customerName, Address address, int amount) {
         this.orderId = orderId;
         this.itemdto = itemdto;
         this.customerName = customerName;
         this.address = address;
+        this.amount = amount;
     }
 }

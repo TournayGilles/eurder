@@ -81,16 +81,20 @@ public class OrderService {
     public List<ShippingItemPurchaseDto> getAllItemsShippingToday(String userId) {
         userRepository.verifyAdmin(UUID.fromString(userId));
         List<Order> orderList = orderRepository.getAllOrders();
+        return generateShippingItemList(orderList);
+    }
+
+    private List<ShippingItemPurchaseDto> generateShippingItemList(List<Order> orderList) {
         List<ItemPurchase> purchaseList;
-        List<ShippingItemPurchaseDto> shippingItemPurchaseDtos = new ArrayList<>();
         Customer customer;
-        for (Order order:orderList){
+        List<ShippingItemPurchaseDto> shippingItemPurchaseDtos = new ArrayList<>();
+        for (Order order: orderList){
             purchaseList = order.getPurchaseList().stream()
                     .filter(purchase -> purchase.getShippingDate().atStartOfDay().equals(LocalDate.now().atStartOfDay()))
                     .toList();
             customer = userRepository.getCustomerById(order.getCustomerId());
             for (ItemPurchase purchase:purchaseList){
-                shippingItemPurchaseDtos.add(new ShippingItemPurchaseDto(order.getOrderId(),itemMapper.toItemDto(purchase.getItem()),customer.getName(),customer.getAddress()));
+                shippingItemPurchaseDtos.add(new ShippingItemPurchaseDto(order.getOrderId(),itemMapper.toItemDto(purchase.getItem()),customer.getName(),customer.getAddress(), purchase.getAmount()));
             }
         }
         return shippingItemPurchaseDtos;

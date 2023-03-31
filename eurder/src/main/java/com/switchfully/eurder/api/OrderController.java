@@ -1,12 +1,9 @@
 package com.switchfully.eurder.api;
 
 import com.switchfully.eurder.service.order.OrderService;
-import com.switchfully.eurder.service.order.dto.OrderDto;
 import com.switchfully.eurder.service.order.dto.OrderReportDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping(path = "/order")
