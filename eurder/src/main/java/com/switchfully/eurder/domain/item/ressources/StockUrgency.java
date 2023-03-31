@@ -14,4 +14,7 @@ public enum StockUrgency {
         }
         return STOCK_HIGH;
     }
+
+    StockUrgency() {
+    }
 }

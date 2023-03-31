@@ -6,12 +6,12 @@ import com.switchfully.eurder.domain.item.ressources.StockUrgency;
 import java.util.UUID;
 
 public class ItemDto {
-    public final UUID itemId;
-    public final String itemName;
-    public final String itemDescription;
-    public final String price;
-    public final int stock;
-    public final StockUrgency urgency;
+    public UUID itemId;
+    public String itemName;
+    public String itemDescription;
+    public String price;
+    public int stock;
+    public StockUrgency urgency;
 
     public ItemDto(UUID itemId, String itemName, String itemDescription, Price price, int stock) {
         this.itemId = itemId;
@@ -20,5 +20,17 @@ public class ItemDto {
         this.price = price.toString();
         this.stock = stock;
         urgency = StockUrgency.setStockUrgency(stock);
+    }
+
+    public ItemDto(UUID itemId, String itemName, String itemDescription, String price, int stock, StockUrgency urgency) {
+        this.itemId = itemId;
+        this.itemName = itemName;
+        this.itemDescription = itemDescription;
+        this.price = price;
+        this.stock = stock;
+        this.urgency = urgency;
+    }
+
+    public ItemDto() {
     }
 }
