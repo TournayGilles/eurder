@@ -23,7 +23,7 @@ public class OrderMapper {
         return orders.stream().map(this::toOrderDto).collect(Collectors.toList());
     }
     public OrderReportDto generateOrderReport(List<Order> orders){
-        Price totalPrice = orders.stream().map(Order::getTotalPrice).reduce(Price::addPrices).get();
+        Price totalPrice = orders.stream().map(Order::getTotalPrice).reduce(Price::addPrices).orElse(new Price(0.0, "Euro"));
         return new OrderReportDto(toOrderDtoList(orders),totalPrice.toString());
     }
 }
